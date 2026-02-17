@@ -1,0 +1,35 @@
+# MoltBook Listing
+# Generated: 2026-02-16 12:19:00
+# Tool: example-cli-tool
+
+name: example-cli-tool
+version: 1.0.0
+type: cli
+language: Python
+keywords:
+  - cli
+  - automation
+  - python
+  - dev-tools
+  - productivity
+
+description: "A fast CLI tool that automates repetitive development tasks with intelligent detection and minimal configuration."
+
+features:
+  - Zero-config setup for common workflows
+  - Plugin architecture for extensibility
+  - Cross-platform support (Linux, macOS, Windows)
+  - Built-in templates for popular frameworks
+  - Rich terminal output with progress tracking
+
+installation: "pip install example-cli-tool"
+
+usage: "example-cli-tool --help"
+
+requirements: "Python >= 3.9"
+
+author: Example Team
+license: MIT
+repository: https://github.com/example/example-cli-tool
+status: active
+last_updated: 2026-02-16
