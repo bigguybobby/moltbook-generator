@@ -51,7 +51,10 @@ class MoltBookGenerator:
         self.template = MoltBookTemplate()
 
     def generate(
-        self, source: str, tool_type: Optional[str] = None
+        self,
+        source: str,
+        tool_type: Optional[str] = None,
+        output_format: str = "yaml",
     ) -> str:
         """
         Generate a MoltBook listing from a source.
@@ -59,9 +62,10 @@ class MoltBookGenerator:
         Args:
             source: GitHub URL or local directory path
             tool_type: Override tool type detection
+            output_format: Output format: 'yaml', 'json', or 'markdown'
 
         Returns:
-            YAML-formatted MoltBook listing as string
+            Listing as string in the requested format
         """
         # Determine if source is URL or local path
         is_url = source.startswith("http://") or source.startswith("https://")
@@ -103,11 +107,12 @@ class MoltBookGenerator:
             if self.verbose:
                 print(f"Extracted keywords: {', '.join(keywords)}")
 
-            # Generate MoltBook YAML
+            # Generate MoltBook listing in requested format
             listing = self.template.render(
                 metadata=metadata,
                 tool_type=tool_type,
                 keywords=keywords,
+                output_format=output_format,
             )
 
             return listing

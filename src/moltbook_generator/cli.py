@@ -63,9 +63,17 @@ Examples:
     parser.add_argument(
         "--tool-type",
         type=str,
-        choices=["cli", "library", "web-app", "service", "plugin", "auto"],
+        choices=["cli", "library", "web-app", "service", "plugin", "mcp-server", "github-action", "auto"],
         default="auto",
         help="Tool type (default: auto-detect)",
+    )
+
+    parser.add_argument(
+        "--format",
+        type=str,
+        choices=["yaml", "json", "markdown"],
+        default="yaml",
+        help="Output format: yaml (default), json, or markdown",
     )
 
     parser.add_argument(
@@ -108,6 +116,7 @@ Examples:
         listing = generator.generate(
             source=args.source,
             tool_type=args.tool_type if args.tool_type != "auto" else None,
+            output_format=getattr(args, "format", "yaml"),
         )
 
         # Preview mode
